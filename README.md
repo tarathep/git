@@ -72,3 +72,42 @@ Having dispersed repositories isn’t specific to projects that communicate via 
 In this model, you can sign the individual commits before sharing them; however,this makes it more difficult to unpack the history of who made which changes if multiple people were involved. The team will need to, instead, adhere to a patch formatting policy (signed or not), and a commit message style. Drupal has strict formatting guidelines for its commit messages to ensure everyone receives credit for their work.
 
 For most projects starting today, this model is not appropriate. It does, however, help to understand some of the more advanced commands, such as bisect, if you are able to think about commits as whole ideas. A more modern approach to this model is to use fork, or clone, repositories on a single code hosting system.
+
+## Collocated Contributor Repositories Model
+
+These days, software developers are unlikely to trade patch files instead, they are much more likely to use a central code hosting system that manages the patch process for them. Using a single code hosting system makes it easier to programmatically create and submit patches between repositories. The method for how these patches are managed is the secret sauce that makes up any code hosting system. The restrictions are presumably handled via Git’s pre-commit hooks to ensure access control is respected.
+
+On a collocated system, the “upstream” project retains complete control over who is allowed to write to the primary project repository. Individual contributors make a clone, or fork, of the project to their own repository on the code hosting system. The contributors make changes to the copy, and then submit their requested changes in the form of a merge request or pull request. If you are working on an open source project with a lot of contributors, you are most likely using
+this model.
+
+**Creating a chain of cloned repositories**
+
+<img src="src\create-chain-repo.png" width="300px">
+
+GitHub has popularized this model for development for contemporary open source projects. I’ve also seen this model used for internal projects with strict walls between departments. For example, if the quality assurance team is solely responsible for the final merging of code into the stable release branch, the team is likely using some variation on this model. Another reason for this separation would be if you were using extra contractors and you wanted to limit their ability to accidentally add something to the repository that hadn’t first undergone a review of some kind.
+
+## Shared Maintenance Model
+
+Finally, we have arrived at what is likely the most typical permission model for internal teams (and teams of one): shared maintenance. In this model, there is an inherent trust among team members. It is assumed that code will be checked and verified before it is committed to the main project branch, and that, generally, the developers are trusted. In this model, work is done locally by all developers before it is pushed into the shared repository for the project. When working with an internal team, this is often where we start: with a single shared repository that everyone has shared write access into.
+
+**Suggesting changes to a project from collocated repositories**
+
+<img src="src\suggesting-changes-project-collocated-repositories.png" width="300px">
+
+Git does not accommodate permissions and instead relies on other systems to grant or deny write access to a repository. If you do need to prevent people from uploading their code to a shared repository, you need to use the host system’s access control to do so. If you are not using a Git hosting platform, this access control might be controlled via SSH accounts.
+
+**Everyone on the team has write access to the central repository from their local repository**
+
+<img src="src\everyone-can-access-local.png" width="300px">
+
+## Custom Access Models
+
+In addition to these individual strategies, teams may also choose to use multiple access models for a given project. This would be particularly useful for projects with very strict regulations on who could commit code to the canonical repository. Indeed, most open source projects will have different levels of access for different contributors.
+
+A common workflow is as follows:
+
+- An official project repository, to which only a very few people are able to commit code. In an open source project, it would be the project maintainers; and in a closed source, or corporate, project, it could be the quality assurance team.
+- A less restricted, internal copy of the repository, which is used for integration by each of the contributors and project teams. This repository might follow a shared maintenance model, where everyone is allowed to merge their branches into the repository as part of a code review process, or even on an ad hoc basis.
+- Individually created personal repositories, locked to the individual contributors.These are typically hosted on the same code hosting system as the official repository, because most modern code hosting systems have easy-to-integrate functionality (usually called a “pull request” or “merge request”).
+
+This split would commonly be seen in teams that employ junior developers, quality assurance teams, or perhaps external contractors.
