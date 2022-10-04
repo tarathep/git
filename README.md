@@ -13,7 +13,7 @@ https://git-scm.com
 ## Access Models
 
 If you have been using version control for a long time, you may remember systems
-like CVS or Subversion with a centralized repository. Figure 2-1 demonstrates how
+like CVS or Subversion with a centralized repository. demonstrates how
 changes were made in Subversion’s centralized system. In this system, each time you
 wanted to save a snapshot of your work to the repository, you were potentially saving
 to the same place as someone else. Just when you thought you were ready to share
@@ -22,5 +22,5 @@ so if someone else had recently updated the same branch with their own work.
 
 Working with files in Subversion
 
-<img src="src\work-with-file-in-subversion.png">
+<img src="src\work-with-file-in-subversion.png" width="300px">
 
