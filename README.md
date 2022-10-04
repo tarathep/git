@@ -20,7 +20,24 @@ to the same place as someone else. Just when you thought you were ready to share
 your work, or request a code review, you would sometimes be prevented from doing
 so if someone else had recently updated the same branch with their own work.
 
-Working with files in Subversion
+**Working with files in Subversion**
 
 <img src="src\work-with-file-in-subversion.png" width="300px">
 
+Git, on the other hand, is a distributed version control system. This means instead of
+having one central place that everyone must use if they want to have their changes
+recorded, each person works independently from the centralized code hosting sys‐
+tem, and is responsible for making commits to his or her local copy of the repository.
+This means changes from other developers are never forced into your work; instead,
+it is your decision of when to incorporate outside work, and when to share your own
+
+Every time you sit down to work with Git, you are sort of working in a centralized
+fashion as far as your computer is concerned; your repository of changes is entirely
+self-contained on your local machine. You do some work, and
+then save that work to your local repository. Then, when you’re ready to share your
+work with others, you make a connection to a remote repository and push your copy
+of a specific branch to it.
+
+**Working with files in Git**
+
+<img src="src\work-with-git.png" width="300px">
