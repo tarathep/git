@@ -66,9 +66,7 @@ In other words, you either are a committer for any branch on the repository, or 
 
 ## Dispersed Contributor Model
 
-When Git was originally conceived, conversations about changes to the code base of
-an open source software project commonly happened on public mailing lists, not on
-centralized web hubs.
+When Git was originally conceived, conversations about changes to the code base of an open source software project commonly happened on public mailing lists, not on centralized web hubs.
 
 This model is still used today by the Git development team.
 
@@ -81,5 +79,33 @@ They would then write an email to the discussion group, and attach their patch f
 To investigate the proposed changes, members of the mailing list would download the attached patch file, and apply it to
 their local code base, using their system’s patch command.
 
-By sharing the patch files via a mailing list, developers were able to encapsulate and share their work—while efficiently limiting what was shared to that patch file so that the people evaluating the work could easily see what had changed between two specific points in time within a shared code base.
+By sharing the patch files via a mailing list, developers were able to encapsulate and share their work-while efficiently limiting what was shared to that patch file so that the people evaluating the work could easily see what had changed between two specific points in time within a shared code base.
 
+This model is still used by the Git project today it is still using a mailing list to share patches, and have conversations about what features should be added to Git and what bugs should be removed.
+
+Although the model might seem archaic, it does have some advantages:
+
+- You don’t need to use a specific version control system locally because the patch file doesn’t require specific version control software to be installed locally.
+- Developers can easily review the proposed changes from the comfort of their email application.
+- This model encourages whole idea thinking. If you have to email a group of people each time you make a change, you are more likely to ensure everything is right so you can avoid the embarrassment of “just one more thing.”
+- Uploading your proposed changes to a system that is not the code hosting system enforces a review procedure among the participants in the software project. In other words, as a developer, I can’t just upload my changes to the main repository; I have to announce my completed work and wait for someone else to merge it in.
+
+**The community review process for patches**
+
+<img src="src\the-comu-review-patch.png" width="300px">
+
+Having dispersed repositories isn’t specific to projects that communicate via mailing lists. 
+
+At the time of this writing, the Drupal project was using a variant of this model.
+
+Instead of using a mailing list to share patches, though, it was using a self-hosted,centralized code hosting and ticket issue system.
+
+In this model, you can sign the individual commits before sharing them; however,this makes it more difficult to unpack the history of who made which changes if multiple people were involved. 
+
+The team will need to, instead, adhere to a patch formatting policy (signed or not), and a commit message style.
+
+Drupal has strict formatting guidelines for its commit messages to ensure everyone receives credit for their work.
+
+For most projects starting today, this model is not appropriate. It does, however, help to understand some of the more advanced commands, such as bisect, if you are able to think about commits as whole ideas.
+
+A more modern approach to this model is to use fork, or clone, repositories on a single code hosting system.
