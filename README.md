@@ -116,10 +116,12 @@ This split would commonly be seen in teams that employ junior developers, qualit
 
 In version control, a branch is a way to separate parallel thinking about how a piece of code might evolve. A branch always begins from a specific point in the code base.
 
-The branching strategy that you use depends on your release management process. Branches allow you to change the files that are visible in the working directory for your project, and only one branch can be active at a time. Most branching strategies separate the work in your project by coarse ideas. An idea could be the version of your software—for example, version 1, version 2, version 3. And spawning from those software versions you might have ideas that are in progress. These ideas are
+The branching strategy that you use depends on your release management process. Branches allow you to change the files that are visible in the working directory for your project, and only one branch can be active at a time. Most branching strategies separate the work in your project by coarse ideas. An idea could be the version of your software for example, version 1, version 2, version 3. And spawning from those software versions you might have ideas that are in progress. These ideas are
 generally separated into branches according to the name of the feature they represent. They might be a bug fix or a new feature, but they also represent whole ideas on a smaller scale.
 
 - Mainline development
 - Branch-per-feature deployment
 - State branching
 - Scheduled deployment
+
+
