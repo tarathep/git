@@ -45,7 +45,7 @@ controls; however, most force you to limit control on a per-repository basis. In
 - Collocated Contributor Repositories, wherein contributing developers create a remote copy of a project, and have their changes accepted by project maintainers.
 - Dispersed Contributor Repositories, wherein code is shared via a text-based patch file.
 
-## Dispersed Contributor Model
+### Dispersed Contributor Model
 
 When Git was originally conceived, conversations about changes to the code base of an open source software project commonly happened on public mailing lists, not on centralized web hubs. This model is still used today by the Git development team. It is almost certainly not appropriate for your team to use this model for its development;however, understanding the model has implications for some of the more advanced concepts required to use the commands rebase and bisect.
 
@@ -73,7 +73,7 @@ In this model, you can sign the individual commits before sharing them; however,
 
 For most projects starting today, this model is not appropriate. It does, however, help to understand some of the more advanced commands, such as bisect, if you are able to think about commits as whole ideas. A more modern approach to this model is to use fork, or clone, repositories on a single code hosting system.
 
-## Collocated Contributor Repositories Model
+### Collocated Contributor Repositories Model
 
 These days, software developers are unlikely to trade patch files instead, they are much more likely to use a central code hosting system that manages the patch process for them. Using a single code hosting system makes it easier to programmatically create and submit patches between repositories. The method for how these patches are managed is the secret sauce that makes up any code hosting system. The restrictions are presumably handled via Git’s pre-commit hooks to ensure access control is respected.
 
@@ -86,7 +86,7 @@ this model.
 
 GitHub has popularized this model for development for contemporary open source projects. I’ve also seen this model used for internal projects with strict walls between departments. For example, if the quality assurance team is solely responsible for the final merging of code into the stable release branch, the team is likely using some variation on this model. Another reason for this separation would be if you were using extra contractors and you wanted to limit their ability to accidentally add something to the repository that hadn’t first undergone a review of some kind.
 
-## Shared Maintenance Model
+### Shared Maintenance Model
 
 Finally, we have arrived at what is likely the most typical permission model for internal teams (and teams of one): shared maintenance. In this model, there is an inherent trust among team members. It is assumed that code will be checked and verified before it is committed to the main project branch, and that, generally, the developers are trusted. In this model, work is done locally by all developers before it is pushed into the shared repository for the project. When working with an internal team, this is often where we start: with a single shared repository that everyone has shared write access into.
 
@@ -100,7 +100,7 @@ Git does not accommodate permissions and instead relies on other systems to gran
 
 <img src="src\everyone-can-access-local.png" width="300px">
 
-## Custom Access Models
+### Custom Access Models
 
 In addition to these individual strategies, teams may also choose to use multiple access models for a given project. This would be particularly useful for projects with very strict regulations on who could commit code to the canonical repository. Indeed, most open source projects will have different levels of access for different contributors.
 
@@ -111,3 +111,7 @@ A common workflow is as follows:
 - Individually created personal repositories, locked to the individual contributors.These are typically hosted on the same code hosting system as the official repository, because most modern code hosting systems have easy-to-integrate functionality (usually called a “pull request” or “merge request”).
 
 This split would commonly be seen in teams that employ junior developers, quality assurance teams, or perhaps external contractors.
+
+
+
+## Branching Strategies
