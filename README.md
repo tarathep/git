@@ -41,9 +41,9 @@ controls; however, most force you to limit control on a per-repository basis. In
 
 **The three most popular models**
 
-- Single Repository; Shared Maintenance, wherein everyone on the team is considered a maintainer and is granted access to upload changes to the project repository.
-- Collocated Contributor Repositories, wherein contributing developers create a remote copy of a project, and have their changes accepted by project maintainers.
-- Dispersed Contributor Repositories, wherein code is shared via a text-based patch file.
+- [Single Repository; Shared Maintenance](/AccessModel.md#shared-maintenance-model), wherein everyone on the team is considered a maintainer and is granted access to upload changes to the project repository.
+- [Collocated Contributor Repositories](/AccessModel.md#collocated-contributor-repositories-model), wherein contributing developers create a remote copy of a project, and have their changes accepted by project maintainers.
+- [Dispersed Contributor Repositories](/AccessModel.md#dispersed-contributor-model), wherein code is shared via a text-based patch file.
 
 ## Branching Strategies
 
