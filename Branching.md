@@ -24,14 +24,15 @@ a reviewer or two with their own, independent branches. As the project grows in 
 
 Perhaps it makes sense for your team to integrate their work into a central branch regularly, but only deploy work occasionally. As soon as you start collecting your work, you need to make a distinction between what you have locally, and what is being used on your production server. If all code is ready for deployment, it shouldn’t be too big of a deal to add a little fix and roll everything out. But what if you have changes committed in your repository that are only mostly finished? This is where we start to move away from a purely continuous deployment strategy, and toward multiple branches in a scheduled deployment strategy.
 
-***There are several advantages to using a branching strategy that encourages regular integration of your work***
+***There are several ```advantages``` to using a branching strategy that encourages regular integration of your work***
 
 - There aren’t very many branches across the entire project. This results in less confusion about where a change disappeared into.
 - Commits that are being made into the code base are relatively small. If there is a problem, it should be relatively quick to undo the mistake.
 - There are fewer emergency fixes, because any code that is saved into the main branch is ready to be deployed. Deployments can often be stressful for developers as they hold their breath while code goes live in production and wait to hear back from the code’s users. With tiny frequent updates, this procedure becomes practiced, and finally automated to the point where it should be almost invisible to
 the end user.
 
-***There are disadvantages to using this strategy as well***
+***There are ```disadvantages``` to using this strategy as well***
+
 - The assumption is that the main branch contains deployment-ready code. If your team doesn’t have a testing infrastructure, it can be risky to assume that new code won’t break anything, especially as the project becomes more complex over time.
 - The notion of a deployment is more appropriate for code that is automatically loaded onto a user’s device (for example, a website). It is less appropriate for software that must be downloaded and installed. While updates that fix problems are welcomed, even I would get annoyed if I had to download and reinstall an application on my phone on a daily basis.
 - One of the ways developers can verify code on production is to hide the feature behind a flag or a flipper. Facebook, Flickr, and Etsy are all rumored to use this technique. The potential risk here is that code can be abandoned behind the flags,
@@ -59,16 +60,55 @@ Up to this point, the GitHub Flow is virtually the same as the Dymitruk model. W
 
 ![](./src/githubflow-feature-branches-are-deployed-after-a-review-and-then-merged.png)
 
-***There are several advantages to using a branch-per-feature deployment strategy:***
+***There are several ```advantages``` to using a branch-per-feature deployment strategy:***
 
 - Much like mainline development, the focus is on rapid deployment of code.
 - Unlike the mainline development, there is an optional build step. When the build step is used, there is the option to select which features should be incorporated into the master branch for deployment.
 
-***There are disadvantages to using a branch-per-feature deployment branching strategy as well:***
+***There are ```disadvantages``` to using a branch-per-feature deployment branching strategy as well:***
 
 - If code is kept on a feature branch, but it is not immediately rolled into master, there is an extra maintenance requirement for developers who need to keep their features up to date while waiting to be rolled into the deployed branch.
 - The semantic naming of the branches helps those who are familiar with the system, but it also represents an insider language that can make onboarding more difficult if there are a lot of open features.
 - There is now a housekeeping requirement for developers to remove old branches as they are rolled into master. This isn’t a large burden, but it is more than would be required from working out of a single master branch.
 
 The branch-per-feature strategy offers a nice middle ground between mainline development and scheduled deployment. In some ways, scheduled deployment extends the branch-per-feature strategy, but with specific naming conventions.
+
+## State Branching
+
+Unlike the strategies up to this point, state branching introduces the idea of a location or snapshot for some of the branches. Often our deployment diagrams are overly simplified and suggest that code moves between environments, but generally this isn’t really how it happens. Instead, Figure shows the code is merged from one branch to another, and each of the branches is deployed to a specific environment. (Yes, we’ll talk about tagged releases later. Patience, grasshopper.) As Figure shows, there’s often a mismatch between the branch names that are used and the name of the environment we are deploying to. (What does master mean? Is it for production? For development? Are you sure?) This strategy was described as the GitLab Flow model.
+
+**Deployment lies: code doesn’t really walk from the local server to the production server**
+
+![](./src/deployment-lies-code-doesnt-really-walk-from-the-local-server-to-the-production-server.png)
+
+**The real deployment process uses a centralized code hosting system**
+
+![](./src/the-real-deployment-process-use-a-centralized-code-hosting-system.png)
+
+Through branch naming conventions, GitLab Flow makes it clear what code is going to be used in what environment, and therefore what conditions might need to be met before merging in commits. For example, you would clearly not merge untested code
+into a branch named production. Alternatively, if you are shipping code to “the outside world” GitLab Flow suggests having release branches. Ideally, these release branches should follow [semantic versioning](https://semver.org/) conventions, although GitLab Flow does not explicitly require it.
+
+An interesting variation on the state branching strategy is the [branch naming convention that the Git project uses](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitworkflows.html). It has four named integration branches:
+
+- ```maint```
+This branch contains code from the most recent stable release of Git as well as additional commits for point releases (maintenance).
+- ```master``` This branch contains the commits that should go into the next release.
+- ```next``` This branch is intended to test topics that are being considered for stability in the master branch.
+- ```pu``` The proposed updates branch contains commits that are not quite ready for inclusion.
+
+The branches work much like a stacked pyramid. Each of the “lower” branches contain commits that are not present in the “higher” branches. maint has the fewest commits, and pu has the most commits. Once code has passed through the review process, it is incorporated into the next integration branch, getting closer to being incorporated into an official release.
+
+**Integration branches used by the Git project**
+
+![](./src/integration-branches-used-by-the-git-project.png)
+
+***There are several ```advantages``` to using a state branching strategy:***
+
+- Branch names are context specific and completely relevant to the work at hand.
+- There is no guessing about the purpose of each branch, making it easier for people to select the right branch when merging their work.
+
+***There are also ```disadvantages``` to using a state branching strategy:***
+
+- It's not always obvious where to start a branch from without guidance.
+- Because the branch names are extremely specific to the context of that team, it can be harder to get consistency across projects, making onboarding more difficult.
 
