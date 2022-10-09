@@ -22,7 +22,8 @@ If you have been using version control for a long time, you may remember systems
 
 **Working with files in Subversion**
 
-<img src="src\work-with-file-in-subversion.png" width="300px">
+<p align="center"><img src="src\work-with-file-in-subversion.png" width="300px">
+</p>
 
 Git, on the other hand, is a distributed version control system. This means instead of having one central place that everyone must use if they want to have their changes recorded, each person works independently from the centralized code hosting system, and is responsible for making commits to his or her local copy of the repository. This means changes from other developers are never forced into your work; instead, it is your decision of when to incorporate outside work, and when to share your own
 
