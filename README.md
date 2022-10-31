@@ -1,6 +1,6 @@
 # Git
 
-Git Fundamental
+Git Fundamental 
 
 <div align="center"><img src="hero.svg" width=100%></div>
 
