@@ -1,7 +1,9 @@
 # Git
 
-Git Fundamental 
-<img src="hero.svg">
+Git Fundamental
+
+<div align="center"><img src="hero.svg" width=100%></div>
+
 By far, the most widely used modern version control system in the world today is Git.
 
 Git is a mature, actively maintained open source project originally developed in 2005 by Linus Torvalds, the famous creator of the Linux operating system kernel.
@@ -16,6 +18,14 @@ In addition to being distributed, Git has been designed with performance, securi
 
 https://git-scm.com
 
+## Table of Contents
+
+- What is GIT
+- Access Models
+- Branching Strategies
+- Git Basic Command
+
+<!-- 
 # Access Models
 
 If you have been using version control for a long time, you may remember systems like CVS or Subversion with a centralized repository. demonstrates how changes were made in Subversion’s centralized system. In this system, each time you wanted to save a snapshot of your work to the repository, you were potentially saving to the same place as someone else. Just when you thought you were ready to share your work, or request a code review, you would sometimes be prevented from doing so if someone else had recently updated the same branch with their own work.
@@ -58,4 +68,4 @@ generally separated into branches according to the name of the feature they repr
 - [State branching](./Branching.md#state-branching)
 - [Scheduled deployment](./Branching.md#scheduled-deployment)
 
-
+ -->
