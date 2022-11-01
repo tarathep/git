@@ -1,6 +1,6 @@
 # Git Fundamental
 
-<div align="center"><img src="hero.svg" width=100%></div>
+<div align="center"><img src="./hero.svg" width=100%></div>
 
 Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
