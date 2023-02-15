@@ -71,6 +71,8 @@
 
 ```git rm --cached FILENAME``` : untracked file but not delete file
 
+```git clean -df```: git clean removes all untracked files and git checkout clears all unstaged changes. (WARNING: while it won't delete ignored files mentioned directly in .gitignore, git clean -df may delete ignored files residing in folders.)
+
 ## Sync
 
 ```git fetch``` : check diffrence code change local and remote repo
