@@ -9,6 +9,29 @@
 
 ```git config --global color.ui auto``` : enable color in command line
 
+### Config global
+
+you can edit configuration file of git at `.git/config`
+
+```bash
+nano .git/config
+```
+
+```config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://username:ghp_xxxxxxxxxxxxx@github.com/username/repository-name.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+        remote = origin
+        merge = refs/heads/main
+```
+
+
 ## Create Repo
 
 ```git init``` : create a local repo system will be create .git in directory
